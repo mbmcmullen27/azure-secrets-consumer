@@ -16,7 +16,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Secret Sync
-        uses: ./ # Uses an action in the root directory
+        uses: mbmcmullen27/azure-secrets@v0.1
         id: secrets
         with:
           keyvault: gh-secrets-awaited-quail
