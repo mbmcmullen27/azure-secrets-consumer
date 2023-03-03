@@ -7,8 +7,6 @@ jobs:
   azure:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
       - name: Azure Login
         uses: Azure/login@v1
@@ -16,8 +14,9 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Secret Sync
-        uses: mbmcmullen27/azure-secrets@v0.1
+        uses: mbmcmullen27/azure-secrets@v1.0
         id: secrets
         with:
           keyvault: gh-secrets-awaited-quail
           token: ${{ secrets.GH_PAT }}
+          pattern: [1-4].*
